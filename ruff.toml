@@ -1,1 +1,9 @@
 indent-width = 4
+
+[format]
+indent-style = "tab"
+
+[lint]
+
+
+ignore = ["E741"]
