@@ -3,61 +3,61 @@ from typing import Optional
 
 
 class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
+	def __init__(self, val=0, next=None):
+		self.val = val
+		self.next = next
 
 
 class Solution:
-    def addTwoNumbers(
-        self, l1: Optional[ListNode], l2: Optional[ListNode]
-    ) -> Optional[ListNode]:
-        # Create a dummy node to simplify the result list construction
-        dummy = ListNode(0)
-        current = dummy
-        carry = 0
+	def addTwoNumbers(
+		self, l1: Optional[ListNode], l2: Optional[ListNode]
+	) -> Optional[ListNode]:
+		# Create a dummy node to simplify the result list construction
+		dummy = ListNode(0)
+		current = dummy
+		carry = 0
 
-        # Continue while there are digits to process or a carry exists
-        while l1 or l2 or carry:
-            # Get values if nodes exist, otherwise use 0
-            x = l1.val if l1 else 0
-            y = l2.val if l2 else 0
+		# Continue while there are digits to process or a carry exists
+		while l1 or l2 or carry:
+			# Get values if nodes exist, otherwise use 0
+			x = l1.val if l1 else 0
+			y = l2.val if l2 else 0
 
-            # Calculate sum and new carry
-            total = x + y + carry
-            carry = total // 10
-            digit = total % 10
+			# Calculate sum and new carry
+			total = x + y + carry
+			carry = total // 10
+			digit = total % 10
 
-            # Create new node with the calculated digit
-            current.next = ListNode(digit)
-            current = current.next
+			# Create new node with the calculated digit
+			current.next = ListNode(digit)
+			current = current.next
 
-            # Move to next nodes if they exist
-            l1 = l1.next if l1 else None
-            l2 = l2.next if l2 else None
+			# Move to next nodes if they exist
+			l1 = l1.next if l1 else None
+			l2 = l2.next if l2 else None
 
-        return dummy.next
+		return dummy.next
 
 
 # Example usage:
 def create_linked_list(arr):
-    if not arr:
-        return None
-    head = ListNode(arr[0])
-    current = head
-    for val in arr[1:]:
-        current.next = ListNode(val)
-        current = current.next
-    return head
+	if not arr:
+		return None
+	head = ListNode(arr[0])
+	current = head
+	for val in arr[1:]:
+		current.next = ListNode(val)
+		current = current.next
+	return head
 
 
 def print_linked_list(head):
-    values = []
-    current = head
-    while current:
-        values.append(str(current.val))
-        current = current.next
-    return " -> ".join(values)
+	values = []
+	current = head
+	while current:
+		values.append(str(current.val))
+		current = current.next
+	return " -> ".join(values)
 
 
 # Test the solution

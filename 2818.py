@@ -66,6 +66,7 @@ class Solution:
 				num //= divisor
 		return len(primeFactors)
 
+
 nums = [8, 3, 9, 3, 8]
 k = 2
 
